@@ -1,31 +1,19 @@
-<<<<<<< HEAD
-=======
-// Smooth Scroll Effect
+// Auto Scroll Down Slowly
 
->>>>>>> 8facabd05b6d902d728c00af004a778d75ba0f00
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+let scrollSpeed = 1; // pixels per frame
 
-    anchor.addEventListener('click', function (e) {
+function autoScroll() {
+    window.scrollBy(0, scrollSpeed);
 
-        e.preventDefault();
+    if (
+        window.innerHeight + window.scrollY <
+        document.body.scrollHeight
+    ) {
+        requestAnimationFrame(autoScroll);
+    }
+}
 
-<<<<<<< HEAD
-        const target = document.querySelector(
-            this.getAttribute('href')
-        );
-
-        if(target){
-            target.scrollIntoView({
-                behavior:'smooth'
-            });
-        }
-=======
-        document.querySelector(this.getAttribute('href'))
-            .scrollIntoView({
-                behavior: 'smooth'
-            });
->>>>>>> 8facabd05b6d902d728c00af004a778d75ba0f00
-
-    });
-
-});
+// Start after 2 seconds
+window.onload = () => {
+    setTimeout(autoScroll, 2000);
+};
