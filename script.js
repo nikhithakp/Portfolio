@@ -1,7 +1,7 @@
 // Auto Scroll Down Slowly
 
-let scrollSpeed = 1; // pixels per frame
-
+let scrollSpeed = 6; // pixels per frame
+  
 function autoScroll() {
     window.scrollBy(0, scrollSpeed);
 
